@@ -24,7 +24,6 @@
 	<!-- 模块说明：这里声明多个子模块 -->
 	<modules>
 		<module>kotlin_springboot_web</module>
-		<module>kotlin_springboot_api</module>
 		<module>kotlin_springboot_service</module>
 		<module>kotlin_springboot_dao</module>
 	</modules>
@@ -44,17 +43,12 @@
 			<!-- project -->
 			<dependency>
 				<groupId>com.hz.learnkt</groupId>
-				<artifactId>kotlin_springboot_api</artifactId>
+				<artifactId>kotlin_springboot_service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.hz.learnkt</groupId>
-				<artifactId>kotlin_springboot_jpa</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.hz.learnkt</groupId>
-				<artifactId>kotlin_springboot_mybatis</artifactId>
+				<artifactId>kotlin_springboot_dao</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

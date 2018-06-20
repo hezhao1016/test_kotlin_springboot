@@ -10,20 +10,12 @@
     </parent>
 
     <artifactId>kotlin_springboot_service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
+        <!-- project -->
         <dependency>
             <groupId>com.hz.learnkt</groupId>
-            <artifactId>kotlin_springboot_api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.hz.learnkt</groupId>
-            <artifactId>kotlin_springboot_jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.hz.learnkt</groupId>
-            <artifactId>kotlin_springboot_mybatis</artifactId>
+            <artifactId>kotlin_springboot_dao</artifactId>
         </dependency>
 
         <!-- spring-boot -->

@@ -10,13 +10,6 @@
     </parent>
 
     <artifactId>kotlin_springboot_dao</artifactId>
-    <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <modules>
-        <module>kotlin_springboot_mybatis</module>
-        <module>kotlin_springboot_jpa</module>
-    </modules>
 
     <dependencies>
         <!-- mysql -->
@@ -31,6 +24,20 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.0.29</version>
+        </dependency>
+
+        <!-- spring jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${org.springframework.boot.version}</version>
+        </dependency>
+
+        <!-- mybatis-spring-boot -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
         </dependency>
     </dependencies>
 

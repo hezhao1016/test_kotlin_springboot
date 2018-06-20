@@ -2,6 +2,7 @@ package com.hz.learnkt.web.controller
 
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
+import com.hz.learnkt.entity.UserInfo
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PathVariable
