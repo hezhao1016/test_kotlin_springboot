@@ -5,6 +5,7 @@ import com.hz.learnkt.entity.UserInfo
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 /**
  * Created by hezhao on 2018-06-19 18:14
@@ -21,10 +22,16 @@ class UserServiceImpl: UserService {
 
     override fun queryUserByUserName(userName: String): UserInfo? = userDao.findByUserName(userName)
 
-    override fun queryUserByName(name: String): List<UserInfo> = userDao.getUserInfoByName(name)
+    override fun queryUserByNameNativeQuery(name: String): List<UserInfo> = userDao.selectUserInfoByNameNativeQuery(name)
+
+    override fun queryUserByName(name: String): List<UserInfo> = userDao.selectUserInfoByName(name)
 
     override fun saveUser(userInfo: UserInfo): UserInfo = userDao.save(userInfo)
 
+    override fun updateNameByUserName(userInfo: UserInfo): Int = userDao.updateNameByUserName(userInfo.name ?: "", userInfo.userName)
+
     override fun deleteUser(id: Long) = userDao.deleteById(id)
+
+    override fun deleteUserByUserName(userName: String): Int = userDao.deleteUserInfoByUserName(userName)
 
 }

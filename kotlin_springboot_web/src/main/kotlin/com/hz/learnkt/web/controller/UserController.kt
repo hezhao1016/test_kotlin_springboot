@@ -27,11 +27,20 @@ class UserController {
     @GetMapping("/{id}")
     fun getUserById(@PathVariable id: Long) = userService.queryUserById(id) ?: "没有记录"
 
-    @RequestMapping("/name/{userName}", method = [RequestMethod.GET])
+    @GetMapping("/username/{userName}")
     fun getUserByUserName(@PathVariable userName: String) = userService.queryUserByUserName(userName) ?: "没有记录"
+
+    @GetMapping("/name/{name}")
+    fun getUserByName(@PathVariable name: String):List<UserInfo> {
+        // userService.queryUserByNameNativeQuery(name)
+        return userService.queryUserByName(name)
+    }
 
     @RequestMapping("/save")
     fun saveUser(userInfo: UserInfo) = userService.saveUser(userInfo)
+
+    @RequestMapping("/update")
+    fun updateNameByUserName(userInfo: UserInfo) = userService.updateNameByUserName(userInfo)
 
     @RequestMapping("/delete/{id}")
     fun deleteUser(@PathVariable id: Long): JSON {
@@ -50,11 +59,14 @@ class UserController {
         json["code"] = "0000"
         return json
     }
+
+    @RequestMapping("/deleteByUserName/{userName}")
+    fun deleteUserByUserName(@PathVariable userName: String) = userService.deleteUserByUserName(userName)
 }
 
 // http://127.0.0.1:8082/api/users/list
 // http://127.0.0.1:8082/api/users/1
-// http://127.0.0.1:8082/api/users/name/admin
+// http://127.0.0.1:8082/api/users/username/admin
 // http://127.0.0.1:8082/api/users/save?name=bob&userName=bob123&password=12345
 // http://127.0.0.1:8082/api/users/save?id=1&name=jacknew&userName=admin&password=123456
 // http://127.0.0.1:8082/api/users/delete/2

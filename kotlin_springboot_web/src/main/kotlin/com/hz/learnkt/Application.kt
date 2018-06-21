@@ -22,8 +22,8 @@ class Application {
 /** 运行Spring Boot */
 fun main(args: Array<String>) {
     // 类似Java的启动方式
-    // SpringApplication.run(com.hz.learnkt.Application::class.java, *args)
+     SpringApplication.run(com.hz.learnkt.Application::class.java, *args)
 
     // Kotlin 特有的简便写法
-    runApplication<Application>(*args)
+//    runApplication<Application>(*args)
 }

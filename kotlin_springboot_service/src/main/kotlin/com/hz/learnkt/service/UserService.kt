@@ -12,9 +12,15 @@ interface UserService {
 
     fun queryUserByUserName(userName: String): UserInfo?
 
+    fun queryUserByNameNativeQuery(name: String): List<UserInfo>
+
     fun queryUserByName(name: String): List<UserInfo>
 
     fun saveUser(userInfo: UserInfo): UserInfo
 
+    fun updateNameByUserName(userInfo: UserInfo): Int
+
     fun deleteUser(id: Long)
+
+    fun deleteUserByUserName(userName: String): Int
 }
