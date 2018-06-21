@@ -1,6 +1,3 @@
-# 日志采用debug模式
-debug: true
-
 spring:
   # 数据源配置
   datasource:

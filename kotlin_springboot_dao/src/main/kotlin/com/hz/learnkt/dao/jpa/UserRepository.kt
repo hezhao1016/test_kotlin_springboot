@@ -10,10 +10,12 @@ import org.springframework.data.jpa.repository.Query
 interface UserRepository : JpaRepository<UserInfo, Long>{
     /**
      * 根据username查询UserInfo，不需要写实现, JPA根据自定义查询时的命名规则去实现
-     *
      */
     fun findByUserName(username: String): UserInfo?
 
-//    @Query()
-//    fun getUserByName(name: String): UserInfo?
+    // 原生SQL查询
+    @Query(value = "SELECT * FROM user_info WHERE name like %?1%", nativeQuery = true)
+    fun getUserInfoByName(name: String): List<UserInfo>
+
+
 }

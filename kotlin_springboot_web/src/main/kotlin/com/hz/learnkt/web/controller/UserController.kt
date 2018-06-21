@@ -5,10 +5,7 @@ import com.alibaba.fastjson.JSONObject
 import com.hz.learnkt.entity.UserInfo
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /** 用户控制器
  *
@@ -27,7 +24,7 @@ class UserController {
         return userService.queryUserList()
     }
 
-    @RequestMapping("/{id}", method = [RequestMethod.GET])
+    @GetMapping("/{id}")
     fun getUserById(@PathVariable id: Long) = userService.queryUserById(id) ?: "没有记录"
 
     @RequestMapping("/name/{userName}", method = [RequestMethod.GET])
