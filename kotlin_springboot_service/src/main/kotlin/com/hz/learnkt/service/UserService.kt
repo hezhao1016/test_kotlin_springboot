@@ -12,7 +12,7 @@ interface UserService {
 
     fun queryUserByUserName(userName: String): UserInfo?
 
-    fun queryUserByName(name: String?): List<UserInfo>
+    fun queryUserByName(name: String): List<UserInfo>
 
     fun saveUser(userInfo: UserInfo): UserInfo
 

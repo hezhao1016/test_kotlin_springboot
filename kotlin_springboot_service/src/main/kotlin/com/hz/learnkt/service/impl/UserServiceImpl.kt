@@ -21,9 +21,7 @@ class UserServiceImpl: UserService {
 
     override fun queryUserByUserName(userName: String): UserInfo? = userDao.findByUserName(userName)
 
-    override fun queryUserByName(name: String?): List<UserInfo> {
-        userDao.getUserInfoByName()
-    }
+    override fun queryUserByName(name: String): List<UserInfo> = userDao.getUserInfoByName(name)
 
     override fun saveUser(userInfo: UserInfo): UserInfo = userDao.save(userInfo)
 
