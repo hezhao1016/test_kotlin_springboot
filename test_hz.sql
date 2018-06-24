@@ -10,10 +10,28 @@ Target Server Type    : MYSQL
 Target Server Version : 50625
 File Encoding         : 65001
 
-Date: 2018-06-20 23:15:24
+Date: 2018-06-25 00:29:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `id` bigint(32) NOT NULL AUTO_INCREMENT,
+  `comment_text` varchar(255) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `user_id` bigint(32) NOT NULL,
+  `weibo_id` bigint(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES ('1', '祝福世界和平！', '2018-06-25 00:29:36', '1', '1');
 
 -- ----------------------------
 -- Table structure for user_info
@@ -31,3 +49,20 @@ CREATE TABLE `user_info` (
 -- Records of user_info
 -- ----------------------------
 INSERT INTO `user_info` VALUES ('1', 'jack', 'admin', '123456');
+
+-- ----------------------------
+-- Table structure for weibo
+-- ----------------------------
+DROP TABLE IF EXISTS `weibo`;
+CREATE TABLE `weibo` (
+  `id` bigint(32) NOT NULL AUTO_INCREMENT,
+  `weibo_text` varchar(255) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `user_id` bigint(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of weibo
+-- ----------------------------
+INSERT INTO `weibo` VALUES ('1', '新加坡特性会顺利举行', '2018-06-25 00:29:15', '1');
