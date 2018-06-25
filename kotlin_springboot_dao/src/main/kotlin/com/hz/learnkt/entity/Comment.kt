@@ -1,5 +1,7 @@
 package com.hz.learnkt.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import org.springframework.format.annotation.DateTimeFormat
 import java.io.Serializable
 import java.util.*
 import javax.persistence.*
@@ -21,16 +23,19 @@ data class Comment(
         @Column(name= "comment_text", nullable = false)
         var commentText: String = "",
 
-        @Column(name= "create_date", nullable = false)
-        var createDate: Date = Date(),
+        @Column(name= "comment_date", nullable = false)
+        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+        var commentDate: Date = Date(),
 
         // 多对一
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "user_id")
-        var userInfo: UserInfo,
+        @JsonIgnore
+        var userInfo: UserInfo? = null,
 
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "weibo_id")
-        var weibo: Weibo
+        @JsonIgnore
+        var weibo: Weibo? = null
 
 ): Serializable

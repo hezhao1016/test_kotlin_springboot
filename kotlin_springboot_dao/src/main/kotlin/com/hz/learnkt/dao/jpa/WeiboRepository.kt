@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional
  * @Description 无
  * @Version V 1.0
  */
-interface WeiboRepository :JpaRepository<Weibo, Long> {
+interface WeiboRepository :JpaRepository<Weibo, Long>, JpaSpecificationExecutor<Weibo> {
 
     @Query("select w from Weibo w where w.userInfo.userName = :userName")
     fun searchUserWeibo(@Param("userName") username: String): List<Weibo>
@@ -37,9 +38,9 @@ interface WeiboRepository :JpaRepository<Weibo, Long> {
     /**
      * 分页查询
      */
-    fun findByUserIsAndWeiboTextContaining(user: UserInfo, weiboText: String, pageable: Pageable): Page<Weibo>
+    fun findByUserInfoIsAndWeiboTextContaining(user: UserInfo, weiboText: String, pageable: Pageable): Page<Weibo>
 
     @Transactional(readOnly = false)
-    fun deleteByUser(userInfo: UserInfo): Int
+    fun deleteByUserInfo(userInfo: UserInfo): Int
 
 }

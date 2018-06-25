@@ -1,11 +1,10 @@
 package com.hz.learnkt.dao.jpa
 
 import com.hz.learnkt.entity.Comment
-import com.hz.learnkt.entity.UserInfo
 import org.apache.commons.lang3.StringUtils
-import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
@@ -23,33 +22,43 @@ class CommentRepository{
     @PersistenceContext
     private lateinit var entityManager: EntityManager
 
-
+    /**
+     * 使用最为基础的方法去写DAO
+     */
     @Transactional(readOnly = true)
-    fun searchWeiboByEm(username: String, weiboText: String, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): List<Comment> {
+    fun searchComment(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): List<Comment> {
+        // JPQL
         val jpql = StringBuffer("select c from Comment c join fetch c.userInfo u left join fetch c.weibo w where 1=1 ")
         val paramMap = HashMap<String, Any>()
-        if (!StringUtils.isEmpty(username)) {
-            jpql.append(" and u.username = :username")
-            paramMap["username"] = username
+        if (userName != null && !StringUtils.isEmpty(userName)) {
+            jpql.append(" and u.userName = :userName")
+            paramMap["userName"] = userName
         }
-        if (!StringUtils.isEmpty(weiboText)) {
+        if (weiboText != null && !StringUtils.isEmpty(weiboText)) {
             jpql.append(" and w.weiboText like :weiboText")
             paramMap["weiboText"] = "%$weiboText%"
         }
+
         if (startDate != null) {
-            jpql.append(" and w.createDate >= :startDate")
+            jpql.append(" and c.commentDate >= :startDate")
             paramMap["startDate"] = startDate
         }
         if (endDate != null) {
-            jpql.append(" and w.createDate <= :endDate")
+            jpql.append(" and c.commentDate <= :endDate")
             paramMap["endDate"] = endDate
         }
 
-        val query = entityManager!!.createQuery(jpql.toString())
+        val query = entityManager.createQuery(jpql.toString())
         val keys = paramMap.keys
         for (keyItem in keys) {
             query.setParameter(keyItem, paramMap[keyItem])
         }
-        return query.setFirstResult(pageNo * pageSize).setMaxResults(pageSize).resultList as List<Comment>
+
+        var start = (pageNo - 1) * pageSize
+        if (start < 0){
+            start = 0
+        }
+
+        return query.setFirstResult(start).setMaxResults(pageSize).resultList as List<Comment>
     }
 }

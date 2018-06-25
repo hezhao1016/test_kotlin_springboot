@@ -1,5 +1,6 @@
 package com.hz.learnkt.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.io.Serializable
 import javax.persistence.*
 
@@ -26,7 +27,9 @@ data class UserInfo(
         var password: String = "",
 
         // 一对多
-        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.REMOVE], mappedBy = "user")
-        var weibos: List<Weibo>
+        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "userInfo")
+        // 在循环的时候过滤某个字段, 以免死循环
+        @JsonIgnore
+        var weibos: List<Weibo>? = null
 
 ): Serializable

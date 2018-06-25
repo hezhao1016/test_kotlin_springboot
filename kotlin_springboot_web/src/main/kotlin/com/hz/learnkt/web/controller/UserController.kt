@@ -67,6 +67,9 @@ class UserController {
 // http://127.0.0.1:8082/api/users/list
 // http://127.0.0.1:8082/api/users/1
 // http://127.0.0.1:8082/api/users/username/admin
+// http://127.0.0.1:8082/api/users/name/ja
 // http://127.0.0.1:8082/api/users/save?name=bob&userName=bob123&password=12345
-// http://127.0.0.1:8082/api/users/save?id=1&name=jacknew&userName=admin&password=123456
+// http://127.0.0.1:8082/api/users/save?id=1&name=jacknew&userName=admin&password=12345
+// http://127.0.0.1:8082/api/users/update?id=1&name=jack&userName=admin
 // http://127.0.0.1:8082/api/users/delete/2
+// http://127.0.0.1:8082/api/users/deleteByUserName/bob123

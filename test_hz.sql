@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `id` bigint(32) NOT NULL AUTO_INCREMENT,
   `comment_text` varchar(255) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `comment_date` datetime NOT NULL,
   `user_id` bigint(32) NOT NULL,
   `weibo_id` bigint(32) NOT NULL,
   PRIMARY KEY (`id`)
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
   `id` bigint(32) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `username` varchar(20) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -65,4 +65,4 @@ CREATE TABLE `weibo` (
 -- ----------------------------
 -- Records of weibo
 -- ----------------------------
-INSERT INTO `weibo` VALUES ('1', '新加坡特性会顺利举行', '2018-06-25 00:29:15', '1');
+INSERT INTO `weibo` VALUES ('1', '新加坡特金会顺利举行', '2018-06-25 00:29:15', '1');
