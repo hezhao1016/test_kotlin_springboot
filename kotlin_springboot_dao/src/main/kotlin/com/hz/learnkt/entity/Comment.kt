@@ -18,24 +18,22 @@ data class Comment(
         @Id
         @Column(name= "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long = 0L,
+        var id: Long? = 0L,
 
         @Column(name= "comment_text", nullable = false)
-        var commentText: String = "",
+        var commentText: String? = "",
 
         @Column(name= "comment_date", nullable = false)
         @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        var commentDate: Date = Date(),
+        var commentDate: Date? = Date(),
 
         // 多对一
-        @ManyToOne(fetch = FetchType.EAGER)
+        @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "user_id")
-        @JsonIgnore
         var userInfo: UserInfo? = null,
 
-        @ManyToOne(fetch = FetchType.EAGER)
+        @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "weibo_id")
-        @JsonIgnore
         var weibo: Weibo? = null
 
 ): Serializable

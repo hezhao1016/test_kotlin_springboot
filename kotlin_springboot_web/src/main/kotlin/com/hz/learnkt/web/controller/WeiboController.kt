@@ -15,7 +15,7 @@ import java.util.*
  * Created by hezhao on 2018-06-25 11:47
  */
 @RestController
-@RequestMapping("/weibos")
+@RequestMapping("/api/weibos")
 class WeiboController {
 
     // 必须使用延迟、var属性才能注入

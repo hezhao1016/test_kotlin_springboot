@@ -16,6 +16,8 @@ interface UserService {
 
     fun queryUserByName(name: String): List<UserInfo>
 
+    fun searchUserName(userName: String): List<UserInfo>
+
     fun saveUser(userInfo: UserInfo): UserInfo
 
     fun updateNameByUserName(userInfo: UserInfo): Int

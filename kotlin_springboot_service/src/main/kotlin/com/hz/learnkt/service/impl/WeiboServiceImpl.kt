@@ -75,6 +75,16 @@ class WeiboServiceImpl: WeiboService{
         //创建查询条件数据对象
         val weibo = Weibo()
         weibo.userInfo = UserInfo()
+
+        // 先把一些不需要作为查询条件的属性设置为null
+        weibo.id = null
+        weibo.weiboText = null
+        weibo.createDate = null
+        weibo.userInfo?.id = null
+        weibo.userInfo?.name = null
+        weibo.userInfo?.password = null
+        weibo.userInfo?.userName = null
+
         if(userName != null && StringUtils.isNotBlank(userName)){
             weibo.userInfo?.userName = userName
         }

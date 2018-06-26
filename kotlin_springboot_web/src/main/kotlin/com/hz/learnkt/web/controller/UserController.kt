@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
  * Created by hezhao on 2018-06-19 11:47
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 class UserController {
 
     // 必须使用延迟、var属性才能注入
@@ -28,11 +28,16 @@ class UserController {
     fun getUserById(@PathVariable id: Long) = userService.queryUserById(id) ?: "没有记录"
 
     @GetMapping("/username/{userName}")
-    fun getUserByUserName(@PathVariable userName: String) = userService.queryUserByUserName(userName) ?: "没有记录"
+    fun getUserByUserName(@PathVariable userName: String): Any {
+        // return userService.queryUserByUserName(userName) ?: "没有记录"
+
+        return userService.searchUserName(userName)
+    }
 
     @GetMapping("/name/{name}")
     fun getUserByName(@PathVariable name: String):List<UserInfo> {
         // userService.queryUserByNameNativeQuery(name)
+
         return userService.queryUserByName(name)
     }
 

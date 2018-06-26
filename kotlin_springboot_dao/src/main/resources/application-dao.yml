@@ -39,3 +39,9 @@ spring:
   jpa:
     # 展示SQL
     show-sql: true
+    # 开启懒加载
+    open-in-view: true
+
+    # 自动更新表结构
+    # hibernate:
+      # ddl-auto: update

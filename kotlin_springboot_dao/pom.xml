@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>kotlin_springboot_dao</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- mysql -->

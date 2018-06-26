@@ -26,9 +26,11 @@ class UserServiceImpl: UserService {
 
     override fun queryUserByName(name: String): List<UserInfo> = userDao.selectUserInfoByName(name)
 
+    override fun searchUserName(userName: String): List<UserInfo> = userDao.searchUserName(userName)
+
     override fun saveUser(userInfo: UserInfo): UserInfo = userDao.save(userInfo)
 
-    override fun updateNameByUserName(userInfo: UserInfo): Int = userDao.updateNameByUserName(userInfo.name ?: "", userInfo.userName)
+    override fun updateNameByUserName(userInfo: UserInfo): Int = userDao.updateNameByUserName(userInfo.name ?: "", userInfo.userName ?: "")
 
     override fun deleteUser(id: Long) = userDao.deleteById(id)
 

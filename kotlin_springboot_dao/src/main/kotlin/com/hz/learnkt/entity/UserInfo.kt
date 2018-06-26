@@ -15,21 +15,21 @@ data class UserInfo(
         @Id
         @Column(name= "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long = 0L,
+        var id: Long? = 0L,
 
         @Column
-        var name: String? = null,
+        var name: String? = "",
 
         @Column(name= "user_name", nullable = false)
-        var userName: String = "",
+        var userName: String? = "",
 
         @Column(nullable = false)
-        var password: String = "",
+        var password: String? = "",
 
         // 一对多
-        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "userInfo")
+        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.MERGE], mappedBy = "userInfo")
         // 在循环的时候过滤某个字段, 以免死循环
         @JsonIgnore
-        var weibos: List<Weibo>? = null
+        var weibos: Set<Weibo>? = null
 
 ): Serializable

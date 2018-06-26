@@ -17,7 +17,7 @@ import java.util.*
  * Created by hezhao on 2018-06-25 11:47
  */
 @RestController
-@RequestMapping("/comments")
+@RequestMapping("/api/comments")
 class CommentController {
 
     // 必须使用延迟、var属性才能注入

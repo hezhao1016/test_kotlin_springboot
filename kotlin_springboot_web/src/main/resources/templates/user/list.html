@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data List</title>
+</head>
+<!-- 页面需要注意，所有的标签都必须要有结束标签，不然做为Thymeleaf模板会出错 -->
+<body>
+    <h2>用户列表</h2>
+    <hr/>
+    <table width="300"  border="1" style="border-collapse:collapse; text-align: center;font-size:12px;">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>用户名</th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr th:each="user:${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.userName}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

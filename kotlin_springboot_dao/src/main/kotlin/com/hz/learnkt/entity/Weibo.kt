@@ -18,24 +18,23 @@ data class Weibo(
         @Id
         @Column(name= "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long = 0L,
+        var id: Long? = 0L,
 
         @Column(name= "weibo_text", nullable = false)
-        var weiboText: String = "",
+        var weiboText: String? = "",
 
         @Column(name= "create_date", nullable = false)
         @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        var createDate: Date = Date(),
+        var createDate: Date? = Date(),
 
-        // 多对一, 立即加载， 否则等到Session关闭就获取不到数据了
-        @ManyToOne(fetch = FetchType.EAGER)
+        // 多对一
+        @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "user_id")
-        @JsonIgnore
         var userInfo: UserInfo? = null,
 
         // 一对多
         // mappedBy 把关系的维护交给多方对象的属性去维护关系, 只有OneToOne,OneToMany,ManyToMany上才有mappedBy属性，ManyToOne不存在该属性
-        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "weibo")
+        @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.MERGE], mappedBy = "weibo")
         @JsonIgnore
         var comments: Set<Comment>? = null
 

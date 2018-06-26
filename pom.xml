@@ -105,6 +105,46 @@
 				<version>${org.springframework.boot.version}</version>
 			</dependency>
 
+			<!-- thymeleaf支持 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-thymeleaf</artifactId>
+				<version>${org.springframework.boot.version}</version>
+			</dependency>
+			<!-- SpringBoot 热部署 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-devtools</artifactId>
+				<version>${org.springframework.boot.version}</version>
+				<optional>true</optional>
+			</dependency>
+
+			<!-- jsp支持 -->
+			<!-- servlet 依赖 -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<!-- tomcat 支持 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-tomcat</artifactId>
+				<version>${org.springframework.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-jasper</artifactId>
+				<version>8.5.31</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<!-- fastjson -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -184,6 +224,15 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<!-- install时跳过测试文件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

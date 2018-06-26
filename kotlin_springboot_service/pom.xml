@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>kotlin_springboot_service</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- project -->
