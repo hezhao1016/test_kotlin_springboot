@@ -7,6 +7,7 @@ import java.util.*
 import javax.persistence.*
 
 /** 微博
+ *
  * @Author hezhao
  * @Time   2018-06-24 17:08
  * @Description 无
@@ -18,7 +19,7 @@ data class Weibo(
         @Id
         @Column(name= "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long? = 0L,
+        var id: Long? = null,
 
         @Column(name= "weibo_text", nullable = false)
         var weiboText: String? = "",
@@ -38,4 +39,8 @@ data class Weibo(
         @JsonIgnore
         var comments: Set<Comment>? = null
 
-): Serializable
+): Serializable {
+        override fun toString(): String {
+                return "Weibo(id=$id, weiboText=$weiboText, createDate=$createDate, userInfo=$userInfo)"
+        }
+}

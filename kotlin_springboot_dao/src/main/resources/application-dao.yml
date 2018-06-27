@@ -45,3 +45,15 @@ spring:
     # 自动更新表结构
     # hibernate:
       # ddl-auto: update
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志
+logging:
+  level:
+    org.springframework: INFO
+    org.spring.springboot.dao: INFO
+    com.hz.learnkt.dao: INFO
+  file: logs/spring-boot-logging.log

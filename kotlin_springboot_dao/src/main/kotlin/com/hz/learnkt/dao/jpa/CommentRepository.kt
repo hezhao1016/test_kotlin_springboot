@@ -26,7 +26,7 @@ class CommentRepository{
      * 使用最为基础的方法去写DAO
      */
     @Transactional(readOnly = true)
-    fun searchComment(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): List<Comment> {
+    fun searchComment(userName: String? = null, weiboText: String? = null, startDate: Date? = null, endDate: Date? = null, pageNo: Int? = null, pageSize: Int? = null): List<Comment> {
         // JPQL
         val jpql = StringBuffer("select c from Comment c join fetch c.userInfo u left join fetch c.weibo w where 1=1 ")
         val paramMap = HashMap<String, Any>()
@@ -54,11 +54,14 @@ class CommentRepository{
             query.setParameter(keyItem, paramMap[keyItem])
         }
 
-        var start = (pageNo - 1) * pageSize
-        if (start < 0){
-            start = 0
+        return if(pageNo != null && pageSize != null){
+            var start = (pageNo - 1) * pageSize
+            if (start < 0){
+                start = 0
+            }
+            query.setFirstResult(start).setMaxResults(pageSize).resultList as List<Comment>
+        } else {
+            query.resultList as List<Comment>
         }
-
-        return query.setFirstResult(start).setMaxResults(pageSize).resultList as List<Comment>
     }
 }

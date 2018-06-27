@@ -1,4 +1,4 @@
-package com.hz.learnkt.web.controller
+package com.hz.learnkt.web.controller.api
 
 import com.hz.learnkt.entity.Comment
 import com.hz.learnkt.entity.Weibo
@@ -25,7 +25,7 @@ class CommentController {
     private lateinit var commentService: CommentService
 
     @GetMapping("/searchComment")
-    fun searchComment(userName: String?, weiboText: String?, startDate: String?, endDate: String?, pageNo: Int, pageSize: Int): List<Comment> {
+    fun searchComment(userName: String?, weiboText: String?, startDate: String?, endDate: String?, pageNo: Int?, pageSize: Int?): List<Comment> {
         var sDate:Date? = null
         var eDate:Date? = null
         if(startDate != null && endDate != null) {

@@ -15,7 +15,7 @@ server:
 debug: true
 
 spring:
-  # 声明注册其他配置文件
+  # 声明注册其他配置文件,多个用逗号分隔
   profiles:
     active: service,dao
 

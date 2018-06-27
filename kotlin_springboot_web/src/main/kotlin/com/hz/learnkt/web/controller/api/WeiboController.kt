@@ -1,4 +1,4 @@
-package com.hz.learnkt.web.controller
+package com.hz.learnkt.web.controller.api
 
 import com.hz.learnkt.entity.Weibo
 import com.hz.learnkt.service.WeiboService

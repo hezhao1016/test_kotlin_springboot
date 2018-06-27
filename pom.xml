@@ -53,6 +53,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 		<java.version>1.8</java.version>
 		<kotlin.version>1.2.41</kotlin.version>
 		<org.springframework.boot.version>2.0.3.RELEASE</org.springframework.boot.version>
@@ -151,14 +152,6 @@
 				<artifactId>fastjson</artifactId>
 				<version>1.2.31</version>
 			</dependency>
-
-			<!-- test -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<version>${org.springframework.boot.version}</version>
-				<scope>test</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -180,6 +173,14 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${org.springframework.boot.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

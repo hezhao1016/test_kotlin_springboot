@@ -28,28 +28,28 @@ import javax.persistence.criteria.Root
 class WeiboServiceImpl: WeiboService{
 
     @Autowired
-    private lateinit var userDao: UserRepository
+    private lateinit var userRepository: UserRepository
 
     @Autowired
-    private lateinit var weiboDao: WeiboRepository
+    private lateinit var weiboRepository: WeiboRepository
 
     override fun getUserWeibo(userName: String): List<Weibo> {
         // val sort = Sort.Order(Sort.Direction.DESC, "id")
         val sort = Sort.by(Sort.Order(Sort.Direction.DESC, "id"))
-        return weiboDao.searchUserWeibo(userName, sort)
+        return weiboRepository.searchUserWeibo(userName, sort)
     }
 
     override fun searchWeibo(userName: String, weiboText: String, pageNo: Int, pageSize: Int): Page<Weibo> {
-        val user = userDao.findByUserName(userName)
+        val user = userRepository.findByUserName(userName)
         if (user != null) {
             // pageNo从0开始
-            return weiboDao.findByUserInfoIsAndWeiboTextContaining(user, "%$weiboText%", PageRequest.of(pageNo, pageSize))
+            return weiboRepository.findByUserInfoIsAndWeiboTextContaining(user, "%$weiboText%", PageRequest.of(pageNo, pageSize))
         }
         return PageImpl(emptyList())
     }
 
     override fun searchWeiboByCriteria(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): Page<Weibo> {
-        return weiboDao.findAll( {
+        return weiboRepository.findAll( {
             root, criteriaQuery, criteriaBuilder ->
 
             var predicates = mutableListOf<Predicate>()
@@ -103,7 +103,7 @@ class WeiboServiceImpl: WeiboService{
         val ex = Example.of(weibo, matcher)
 
         //查询
-        return weiboDao.findAll(ex)
+        return weiboRepository.findAll(ex)
     }
 
 }

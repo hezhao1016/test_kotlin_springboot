@@ -1,5 +1,6 @@
 package com.hz.learnkt.service.impl
 
+import com.hz.learnkt.dao.dao.UserMapper
 import com.hz.learnkt.dao.jpa.UserRepository
 import com.hz.learnkt.entity.UserInfo
 import com.hz.learnkt.service.UserService
@@ -14,26 +15,37 @@ import org.springframework.transaction.annotation.Transactional
 class UserServiceImpl: UserService {
 
     @Autowired
-    private lateinit var userDao: UserRepository
+    private lateinit var userRepository: UserRepository
 
-    override fun queryUserList(): List<UserInfo> = userDao.findAll()
+    @Autowired
+    private lateinit var userMapper: UserMapper
 
-    override fun queryUserById(id: Long): UserInfo? = userDao.findById(id).orElse(null)
+    override fun queryUserList(): List<UserInfo> = userRepository.findAll()
 
-    override fun queryUserByUserName(userName: String): UserInfo? = userDao.findByUserName(userName)
+    override fun queryUserById(id: Long): UserInfo? = userRepository.findById(id).orElse(null)
 
-    override fun queryUserByNameNativeQuery(name: String): List<UserInfo> = userDao.selectUserInfoByNameNativeQuery(name)
+    override fun queryUserByUserName(userName: String): UserInfo? = userRepository.findByUserName(userName)
 
-    override fun queryUserByName(name: String): List<UserInfo> = userDao.selectUserInfoByName(name)
+    override fun queryUserByNameNativeQuery(name: String): List<UserInfo> = userRepository.selectUserInfoByNameNativeQuery(name)
 
-    override fun searchUserName(userName: String): List<UserInfo> = userDao.searchUserName(userName)
+    override fun queryUserByName(name: String): List<UserInfo> = userRepository.selectUserInfoByName(name)
 
-    override fun saveUser(userInfo: UserInfo): UserInfo = userDao.save(userInfo)
+    override fun searchUserName(userName: String): List<UserInfo> = userRepository.searchUserName(userName)
 
-    override fun updateNameByUserName(userInfo: UserInfo): Int = userDao.updateNameByUserName(userInfo.name ?: "", userInfo.userName ?: "")
+    override fun saveUser(userInfo: UserInfo): UserInfo = userRepository.save(userInfo)
 
-    override fun deleteUser(id: Long) = userDao.deleteById(id)
+    override fun updateNameByUserName(userInfo: UserInfo): Int = userRepository.updateNameByUserName(userInfo.name ?: "", userInfo.userName ?: "")
 
-    override fun deleteUserByUserName(userName: String): Int = userDao.deleteUserInfoByUserName(userName)
+    override fun deleteUser(id: Long) = userRepository.deleteById(id)
+
+    override fun deleteUserByUserName(userName: String): Int = userRepository.deleteUserInfoByUserName(userName)
+
+    override fun queryUserListByMybatis(userInfo: UserInfo): List<UserInfo> {
+        return userMapper.queryUserList(userInfo)
+    }
+
+    override fun insertUserByMybatis(userInfo: UserInfo): Int {
+        return userMapper.insertUser(userInfo)
+    }
 
 }

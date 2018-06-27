@@ -31,7 +31,7 @@ CREATE TABLE `comment` (
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES ('1', '祝福世界和平！', '2018-06-25 00:29:36', '1', '1');
+INSERT INTO `comment` VALUES ('1', '我的梦想是世界和平！', '2018-06-25 00:29:36', '1', '1');
 
 -- ----------------------------
 -- Table structure for user_info

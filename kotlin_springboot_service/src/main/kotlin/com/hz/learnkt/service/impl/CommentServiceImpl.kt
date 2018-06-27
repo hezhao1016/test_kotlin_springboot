@@ -15,10 +15,10 @@ import java.util.*
 class CommentServiceImpl: CommentService {
 
     @Autowired
-    private lateinit var commentDao: CommentRepository
+    private lateinit var commentRepository: CommentRepository
 
-    override fun searchComment(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): List<Comment> {
-        return commentDao.searchComment(userName, weiboText, startDate, endDate, pageNo, pageSize)
+    override fun searchComment(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int?, pageSize: Int?): List<Comment> {
+        return commentRepository.searchComment(userName, weiboText, startDate, endDate, pageNo, pageSize)
     }
 
 }

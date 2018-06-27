@@ -5,6 +5,7 @@ import java.io.Serializable
 import javax.persistence.*
 
 /** 用户信息
+ *
  * Created by hezhao on 2018-06-19 17:09
  */
 @Entity
@@ -15,7 +16,7 @@ data class UserInfo(
         @Id
         @Column(name= "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long? = 0L,
+        var id: Long? = null,
 
         @Column
         var name: String? = "",
@@ -32,4 +33,8 @@ data class UserInfo(
         @JsonIgnore
         var weibos: Set<Weibo>? = null
 
-): Serializable
+): Serializable {
+        override fun toString(): String {
+                return "UserInfo(id=$id, name=$name, userName=$userName, password=$password)"
+        }
+}

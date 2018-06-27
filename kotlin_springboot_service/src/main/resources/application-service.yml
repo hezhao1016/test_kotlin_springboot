@@ -1,0 +1,4 @@
+spring:
+  # 声明注册其他配置文件
+  profiles:
+    active: dao

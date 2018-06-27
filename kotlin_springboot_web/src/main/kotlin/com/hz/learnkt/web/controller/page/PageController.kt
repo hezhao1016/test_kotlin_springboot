@@ -1,4 +1,4 @@
-package com.hz.learnkt.web.controller
+package com.hz.learnkt.web.controller.page
 
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired

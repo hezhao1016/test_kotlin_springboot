@@ -10,6 +10,5 @@ import java.util.*
  * @Version V 1.0
  */
 interface CommentService {
-    fun searchComment(userName: String?, weiboText: String?, startDate: Date?, endDate: Date?, pageNo: Int, pageSize: Int): List<Comment>
-
+    fun searchComment(userName: String? = null, weiboText: String? = null, startDate: Date? = null, endDate: Date? = null, pageNo: Int? = null, pageSize: Int? = null): List<Comment>
 }
