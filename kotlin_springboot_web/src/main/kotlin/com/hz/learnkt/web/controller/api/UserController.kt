@@ -2,7 +2,7 @@ package com.hz.learnkt.web.controller.api
 
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.entity.master.UserInfo
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -68,14 +68,6 @@ class UserController {
     @RequestMapping("/deleteByUserName/{userName}")
     fun deleteUserByUserName(@PathVariable userName: String) = userService.deleteUserByUserName(userName)
 
-
-    @GetMapping("/list2")
-    fun queryUserListByMybatis(userInfo: UserInfo): List<UserInfo> {
-        return userService.queryUserListByMybatis(userInfo)
-    }
-
-    @GetMapping("/insert")
-    fun insertUserByMybatis(userInfo: UserInfo) = userService.insertUserByMybatis(userInfo)
 }
 
 // http://127.0.0.1:8082/api/users/list
@@ -87,6 +79,3 @@ class UserController {
 // http://127.0.0.1:8082/api/users/update?id=1&name=jack&userName=admin
 // http://127.0.0.1:8082/api/users/delete/2
 // http://127.0.0.1:8082/api/users/deleteByUserName/bob123
-
-// http://127.0.0.1:8082/api/users/list2?name=ja&userName=admin&id=1
-// http://127.0.0.1:8082/api/users/insert?name=tom&userName=tom123&password=1234

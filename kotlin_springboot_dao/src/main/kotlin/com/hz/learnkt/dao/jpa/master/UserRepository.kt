@@ -1,6 +1,6 @@
-package com.hz.learnkt.dao.jpa
+package com.hz.learnkt.dao.jpa.master
 
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.entity.master.UserInfo
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query

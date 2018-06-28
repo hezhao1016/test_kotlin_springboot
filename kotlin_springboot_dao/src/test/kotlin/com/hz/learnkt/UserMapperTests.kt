@@ -1,7 +1,7 @@
 package com.hz.learnkt
 
-import com.hz.learnkt.dao.dao.UserMapper
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.dao.annotation.UserMapper
+import com.hz.learnkt.entity.master.UserInfo
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired

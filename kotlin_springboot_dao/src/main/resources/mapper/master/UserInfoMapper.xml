@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hz.learnkt.dao.mybatis.xml.master.UserInfoDao">
-    <resultMap id="BaseResultMap" type="com.hz.learnkt.entity.UserInfo">
+    <resultMap id="BaseResultMap" type="com.hz.learnkt.entity.master.UserInfo">
         <result column="id" property="id" />
         <result column="user_name" property="userName" />
         <result column="description" property="description" />
     </resultMap>
 
-    <parameterMap id="User" type="com.hz.learnkt.entity.UserInfo"/>
+    <parameterMap id="User" type="com.hz.learnkt.entity.master.UserInfo"/>
 
     <sql id="Base_Column_List">
 		id, name, user_name, password

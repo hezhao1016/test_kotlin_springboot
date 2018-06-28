@@ -1,4 +1,4 @@
-package com.hz.learnkt.entity
+package com.hz.learnkt.entity.master
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import java.io.Serializable

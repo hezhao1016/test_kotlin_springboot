@@ -1,12 +1,10 @@
 package com.hz.learnkt.service.impl
 
-import com.hz.learnkt.dao.dao.UserMapper
-import com.hz.learnkt.dao.jpa.UserRepository
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.dao.jpa.master.UserRepository
+import com.hz.learnkt.entity.master.UserInfo
 import com.hz.learnkt.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
 
 /**
  * Created by hezhao on 2018-06-19 18:14
@@ -16,9 +14,6 @@ class UserServiceImpl: UserService {
 
     @Autowired
     private lateinit var userRepository: UserRepository
-
-    @Autowired
-    private lateinit var userMapper: UserMapper
 
     override fun queryUserList(): List<UserInfo> = userRepository.findAll()
 
@@ -39,13 +34,5 @@ class UserServiceImpl: UserService {
     override fun deleteUser(id: Long) = userRepository.deleteById(id)
 
     override fun deleteUserByUserName(userName: String): Int = userRepository.deleteUserInfoByUserName(userName)
-
-    override fun queryUserListByMybatis(userInfo: UserInfo): List<UserInfo> {
-        return userMapper.queryUserList(userInfo)
-    }
-
-    override fun insertUserByMybatis(userInfo: UserInfo): Int {
-        return userMapper.insertUser(userInfo)
-    }
 
 }

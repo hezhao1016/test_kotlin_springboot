@@ -1,6 +1,6 @@
 package com.hz.learnkt.service
 
-import com.hz.learnkt.entity.Weibo
+import com.hz.learnkt.entity.master.Weibo
 import org.springframework.data.domain.Page
 import java.util.*
 

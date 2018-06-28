@@ -1,6 +1,6 @@
 package com.hz.learnkt.service
 
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.entity.master.UserInfo
 
 /**
  * Created by hezhao on 2018-06-19 18:14
@@ -26,10 +26,4 @@ interface UserService {
     fun deleteUser(id: Long)
 
     fun deleteUserByUserName(userName: String): Int
-
-
-    // Mybatis 注解
-    fun queryUserListByMybatis(userInfo: UserInfo): List<UserInfo>
-
-    fun insertUserByMybatis(userInfo: UserInfo): Int
 }

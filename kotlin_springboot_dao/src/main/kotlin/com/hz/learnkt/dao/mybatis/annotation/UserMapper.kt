@@ -1,17 +1,15 @@
-package com.hz.learnkt.dao.dao
+package com.hz.learnkt.dao.annotation
 
-import com.hz.learnkt.entity.UserInfo
+import com.hz.learnkt.entity.master.UserInfo
 import org.apache.commons.lang3.StringUtils
 import org.apache.ibatis.annotations.*
 import org.apache.ibatis.type.JdbcType
 import org.apache.ibatis.annotations.SelectProvider
 import org.apache.ibatis.jdbc.SQL
 
-
-
-
-
 /** Mybatis 使用注解实现DAO
+ *
+ * 由于使用了多数据源配置xml方式的，所以注解的暂时用不了。
  *
  * Created by hezhao on 2018-06-19 17:32
  */

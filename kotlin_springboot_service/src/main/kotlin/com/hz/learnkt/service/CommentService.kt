@@ -1,6 +1,6 @@
 package com.hz.learnkt.service
 
-import com.hz.learnkt.entity.Comment
+import com.hz.learnkt.entity.master.Comment
 import java.util.*
 
 /**

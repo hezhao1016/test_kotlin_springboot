@@ -1,6 +1,5 @@
-package com.hz.learnkt.entity
+package com.hz.learnkt.entity.master
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.format.annotation.DateTimeFormat
 import java.io.Serializable
 import java.util.*

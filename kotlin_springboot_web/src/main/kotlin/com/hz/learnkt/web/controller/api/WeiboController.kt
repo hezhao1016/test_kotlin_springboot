@@ -1,6 +1,6 @@
 package com.hz.learnkt.web.controller.api
 
-import com.hz.learnkt.entity.Weibo
+import com.hz.learnkt.entity.master.Weibo
 import com.hz.learnkt.service.WeiboService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page

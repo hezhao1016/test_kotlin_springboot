@@ -1,11 +1,8 @@
 package com.hz.learnkt.web.controller.api
 
-import com.hz.learnkt.entity.Comment
-import com.hz.learnkt.entity.Weibo
+import com.hz.learnkt.entity.master.Comment
 import com.hz.learnkt.service.CommentService
-import com.hz.learnkt.service.WeiboService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

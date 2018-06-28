@@ -1,21 +1,17 @@
 package com.hz.learnkt.service.impl
 
-import com.hz.learnkt.dao.jpa.UserRepository
-import com.hz.learnkt.dao.jpa.WeiboRepository
-import com.hz.learnkt.entity.UserInfo
-import com.hz.learnkt.entity.Weibo
+import com.hz.learnkt.dao.jpa.master.UserRepository
+import com.hz.learnkt.dao.jpa.master.WeiboRepository
+import com.hz.learnkt.entity.master.UserInfo
+import com.hz.learnkt.entity.master.Weibo
 import com.hz.learnkt.service.WeiboService
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.*
 import org.springframework.data.domain.PageRequest
-import org.springframework.data.jpa.domain.Specification
 import org.springframework.stereotype.Service
 import java.util.*
-import javax.persistence.criteria.CriteriaBuilder
-import javax.persistence.criteria.CriteriaQuery
 import javax.persistence.criteria.Predicate
-import javax.persistence.criteria.Root
 
 
 /**

@@ -1,7 +1,7 @@
-package com.hz.learnkt.dao.jpa
+package com.hz.learnkt.dao.jpa.master
 
-import com.hz.learnkt.entity.UserInfo
-import com.hz.learnkt.entity.Weibo
+import com.hz.learnkt.entity.master.UserInfo
+import com.hz.learnkt.entity.master.Weibo
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort

@@ -1,7 +1,7 @@
 package com.hz.learnkt.service.impl
 
-import com.hz.learnkt.dao.jpa.CommentRepository
-import com.hz.learnkt.entity.Comment
+import com.hz.learnkt.dao.jpa.master.CommentRepository
+import com.hz.learnkt.entity.master.Comment
 import com.hz.learnkt.service.CommentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

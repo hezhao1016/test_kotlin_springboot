@@ -1,10 +1,9 @@
-package com.hz.learnkt.dao.jpa
+package com.hz.learnkt.dao.jpa.master
 
-import com.hz.learnkt.entity.Comment
+import com.hz.learnkt.entity.master.Comment
 import org.apache.commons.lang3.StringUtils
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
-import java.text.SimpleDateFormat
 import java.util.*
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
