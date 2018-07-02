@@ -43,7 +43,7 @@ spring:
     master:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test_hz?useUnicode=true&characterEncoding=utf8
+      jdbc-url: jdbc:mysql://localhost:3306/test_hz?useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       ###### 连接池配置 ######
@@ -62,7 +62,7 @@ spring:
     cluster:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test_hz_city?useUnicode=true&characterEncoding=utf8
+      jdbc-url: jdbc:mysql://localhost:3306/test_hz_city?useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       ###### 连接池配置 ######
@@ -93,6 +93,10 @@ spring:
       # ddl-auto: update
 
 mybatis:
+  # 指定mybatis基础配置文件和实体类映射文件地址
+  # config-locations: classpath:mybatis-config.xml
+  # mapper-locations: classpath*:mapper/*Mapper.xml
+  # type-aliases-package: com.hz.learnkt.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

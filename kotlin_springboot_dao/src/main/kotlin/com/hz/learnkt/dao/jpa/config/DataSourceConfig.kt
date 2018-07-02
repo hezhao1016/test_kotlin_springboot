@@ -1,5 +1,5 @@
 // // 暂时注释掉，使用Mybatis的数据源
-
+//
 //package com.hz.learnkt.dao.jpa.config
 //
 //import com.alibaba.druid.pool.DruidDataSource
@@ -21,7 +21,7 @@
 //class DataSourceConfig {
 //
 //    // 主
-//    @Value("\${spring.datasource.master.url}")
+//    @Value("\${spring.datasource.master.jdbc-url}")
 //    private lateinit var url: String
 //
 //    @Value("\${spring.datasource.master.username}")
@@ -34,7 +34,7 @@
 //    private lateinit var driverClass: String
 //
 //    // 从
-//    @Value("\${spring.datasource.cluster.url}")
+//    @Value("\${spring.datasource.cluster.jdbc-url}")
 //    private lateinit var url2: String
 //
 //    @Value("\${spring.datasource.cluster.username}")

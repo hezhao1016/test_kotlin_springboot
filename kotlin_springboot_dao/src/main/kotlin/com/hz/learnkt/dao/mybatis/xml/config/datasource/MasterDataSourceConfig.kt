@@ -28,7 +28,7 @@ class MasterDataSourceConfig {
         const val MAPPER_LOCATION = "classpath:mapper/master/*.xml"
     }
 
-    @Value("\${spring.datasource.master.url}")
+    @Value("\${spring.datasource.master.jdbc-url}")
     private lateinit var url: String
 
     @Value("\${spring.datasource.master.username}")

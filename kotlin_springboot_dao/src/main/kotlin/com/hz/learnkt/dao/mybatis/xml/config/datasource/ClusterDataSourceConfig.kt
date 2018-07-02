@@ -27,7 +27,7 @@ class ClusterDataSourceConfig {
         const val MAPPER_LOCATION = "classpath:mapper/cluster/*.xml"
     }
 
-    @Value("\${spring.datasource.cluster.url}")
+    @Value("\${spring.datasource.cluster.jdbc-url}")
     private lateinit var url: String
 
     @Value("\${spring.datasource.cluster.username}")
