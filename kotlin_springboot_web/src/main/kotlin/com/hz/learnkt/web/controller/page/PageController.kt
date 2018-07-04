@@ -71,7 +71,7 @@ class PageController {
         val userList = userService.queryUserList()
 
         model["users"] = userList
-        return "/user/list"
+        return "user/list"
     }
 
 }

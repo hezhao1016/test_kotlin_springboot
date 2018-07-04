@@ -33,7 +33,7 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
-  # 使用jsp， 使用spring-boot:run启动
+  # 使用jsp， 使用spring-boot:run启动， 不可以直接运行main方法启动
 #  mvc:
 #    static-path-pattern: /static/**
 #    view:

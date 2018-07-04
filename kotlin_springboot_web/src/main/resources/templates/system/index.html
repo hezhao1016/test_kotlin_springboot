@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -7,7 +7,7 @@
 <body>
 <h1>Welcome page of thymeleaf.</h1>
 
-<a href="/page/redirect">redirect</a>
-<a href="/page/model">model</a>
+<a th:href="@{/page/redirect}">redirect</a>
+<a th:href="@{/page/model}">model</a>
 </body>
 </html>

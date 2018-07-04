@@ -12,7 +12,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	  
-	<script src="<%=request.getContextPath()%>/static/js/jquery-2.0.3.min.js"></script>
+	<script src="${ctx}/static/js/jquery-2.0.3.min.js"></script>
 	<script>
 		$(function () {
 			$("#btn").click(function () {
@@ -25,8 +25,8 @@
   <body>
   	<h1>This is My JSP page.</h1>
 
-	<a href="/page/redirect">redirect</a>
-	<a href="/page/model">model</a>
+	<a href="${ctx}/page/redirect">redirect</a>
+	<a href="${ctx}/page/model">model</a>
 
   	<p><button id="btn">Click</button></p>
   </body>
