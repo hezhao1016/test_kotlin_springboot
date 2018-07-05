@@ -49,7 +49,6 @@
 //
 //    // 配置主数据源
 //    @Bean(name = ["primaryDataSource"])
-//    @Qualifier("primaryDataSource")
 //    @Primary
 //    @ConfigurationProperties(prefix="spring.datasource.master")
 //    fun primaryDataSource(): DataSource {
@@ -67,7 +66,6 @@
 //
 //    // 配置从数据源
 //    @Bean(name = ["secondaryDataSource"])
-//    @Qualifier("secondaryDataSource")
 //    @ConfigurationProperties(prefix="spring.datasource.cluster")
 //    fun secondaryDataSource(): DataSource {
 //        // 创建默认数据源
